@@ -1,5 +1,5 @@
 import React, {useRef} from "react";
-
+import Slider from '../Layout/DoctorConcernSlider'
 const DoctorBox = ({specialist, icon}) => {
     const handleClick = () => {
         // Add your click logic here
@@ -8,10 +8,9 @@ const DoctorBox = ({specialist, icon}) => {
 
     return (
         <div
-            className="bg-white rounded-lg p-4 shadow-md m-4 cursor-pointer transition-transform 
-                 hover:scale-105 text-center"
+            className="doct-conrn-list  bg-white rounded-lg p-4  shadow-md     cursor-pointer transition-transform  hover:scale-105 text-center"
             onClick={handleClick}
-            style={{width: "200px", height: "150px"}}
+            
         >
             <div className="rounded-full bg-gray-300 h-12 w-12 flex items-center justify-center mx-auto mb-4">
                 {icon}
@@ -53,13 +52,14 @@ const Doctors = () => {
     };
 
     return (
-        <div className="bg-gray-100 p-4 sm:p-8">
-            <h1 className="text-3xl mb-4 sm:mb-8 flex justify-center">Choose Doctors by Concern</h1>
-            <div ref={scrollContainerRef} className="flex overflow-x-auto scrolling-container" onClick={handleScroll}>
+        <div className="bg-gray-100 p-4 sm:p-8 md:mx-16 md:mt-16 " style={{marginBottom:'-10rem'}}>
+            <h1 className="text-3xl mb-4 sm:mb-8 flex justify-start">Choose Doctors by Concern</h1>
+            <Slider data={doctorsData} />
+            {/* <div ref={scrollContainerRef} className="flex overflow-x-auto scrolling-container" onClick={handleScroll}>
                 {doctorsData.map((doctor, index) => (
                     <DoctorBox key={index} {...doctor} />
                 ))}
-            </div>
+            </div> */}
         </div>
     );
 };

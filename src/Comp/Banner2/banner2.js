@@ -1,30 +1,51 @@
 // ScreenComponent.js
-import React from "react";
-
+import React, { useEffect } from "react";
+import Lottie from 'lottie-react';
+import animationData from '../../assets/Animations/anima.json';
+import bg_img from './shape-2.png'
 const ScreenComponent = () => {
+
     return (
-        <div className="flex justify-center items-center h-screen ">
+        <div className="flex justify-center items-center  bg-white  download-main-div "
+            style={{ backgroundImage: `url(${bg_img})` }}
+        // style={{  height: "35rem",background:"#453f85",marginTop:'-10rem' }}
+        >
             {/* Left side with image */}
-            <div className="Download w-1/2 p-8 ">
-                <img
-                    className="w-full h-auto rounded-lg shadow-lg"
+            <div className="Download p-8 md:w-1/2  ">
+                {/* <img
+                    className="w-full h-64 rounded-lg "
                     src="/mob.jpg" // Replace with your image URL
                     alt="Your Image"
-                />
+                /> */}
+                <div>
+                    <div  className="relative md:w-ful md:h-full ">
+
+                        <iframe src="https://lottie.host/embed/c6fad82e-30fe-434f-be04-1c1d4714e195/velKEK7AGN.json"  className="download-div-img" ></iframe>
+                    </div>
+                    {/* <Lottie options={defaultOptions} height={400} width={400} />; */}
+                    {/* <Lottie
+                        animationData={animationData}
+                        loop={true}
+                        autoplay={true}
+                        style={{ width: '80%', height: 'auto' }}
+                    /> */}
+                </div>
             </div>
 
             {/* Right side with text and buttons */}
-            <div className="Download w-1/2 p-8">
-                <h2 className="text-2xl font-bold mb-4">Download the IMEDIFEX APP</h2>
-                <p className="text-gray-700 mb-8">
-                hospitals and services. Find doctor reviews and book appointment online, all using the imedifex app.
+            <div className="Download-text  md:w-1/2 p-8 flex flex-col items-start justify-start  md:mr-5">
+                <h1 className="font-bold  text-[#39cabb]">DOWNLOAD APPS</h1>
+                <h1 className="text-4xl font-bold md:text-5xl  md:font-bold  mb-4 text-black mt-5">For Better Test</h1>
+                <h2 className="text-3xl md:text-5xl font-bold mb-4 text-black">Download the IMEDIFEX APP</h2>
+                <p className="text-black mb-8 mt-5">
+                    hospitals and services. Find doctor reviews and all using the imedifex app. <br /> book appointment online, all using the imedifex app.
                 </p>
 
                 {/* Buttons */}
 
                 <div class="flex justify-center">
-                    <div>
-                        <div class="flex mt-3 w-48 h-14 bg-black text-white rounded-xl items-center justify-center">
+                    <div className=" md:flex items-center justify-center md:space-x-4">
+                        <button class="flex mt-3 w-48 h-14 bg-[#39cabb] text-white rounded-xl items-center justify-center">
                             <div class="mr-3">
                                 <svg viewBox="0 0 384 512" width="30">
                                     <path
@@ -37,9 +58,9 @@ const ScreenComponent = () => {
                                 <div class="text-xs">Download on the</div>
                                 <div class="text-2xl font-semibold font-sans -mt-1">App Store</div>
                             </div>
-                        </div>
+                        </button>
 
-                        <div class="flex mt-3 w-48 h-14 bg-black text-white rounded-lg items-center justify-center">
+                        <button class="flex mt-3 w-48 h-14 bg-[#fe5948] text-white rounded-lg items-center justify-center">
                             <div class="mr-3">
                                 <svg viewBox="30 336.7 120.9 129.2" width="30">
                                     <path
@@ -61,10 +82,10 @@ const ScreenComponent = () => {
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-xs">GET IT ON</div>
+                                <div class="text-xs">Download on the</div>
                                 <div class="text-xl font-semibold font-sans -mt-1">Google Play</div>
                             </div>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>

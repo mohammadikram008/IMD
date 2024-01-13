@@ -1,6 +1,8 @@
 import React from "react";
 import StarRatings from "react-star-ratings";
-
+import Slider from "../Layout/Slider";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 const reviews = [
     {
         name: "John Doe",
@@ -51,13 +53,23 @@ const reviews = [
         thumbImage:
             "https://media.istockphoto.com/id/628963392/photo/young-man-making-facial-expressions.jpg?s=612x612&w=0&k=20&c=Gck2rmBG8g8wzQm0rHzdj9Uq37ug_IGW_8YGgQg_CoU=",
     },
+    {
+        name: "Alice Smith",
+        rating: 3,
+        review: "Vivamus vitae erat eget sapien cursus euismod. Sed nec ligula vitae lacus bibendum cursus. Duis at velit vel metus sollicitudin egestas.",
+        thumbImage:
+            "https://media.istockphoto.com/id/628963392/photo/young-man-making-facial-expressions.jpg?s=612x612&w=0&k=20&c=Gck2rmBG8g8wzQm0rHzdj9Uq37ug_IGW_8YGgQg_CoU=",
+    },
 ];
 
 const ReviewSection = () => {
     return (
-        <div className="text-center mt-4">
+        <div className="text-center mt-4  md:h-54">
             <h1 className="text-3xl mb-8">Reviews of Imedfiex Users</h1>
-            <div className="flex flex-nowrap overflow-x-auto" style={{maxWidth: "100%", marginBottom: "16px"}}>
+            <div className="md:mx-20">
+                <Slider data={reviews} />
+            </div>
+            {/* <div className="flex flex-nowrap overflow-x-auto md:mx-16" style={{maxWidth: "100%", marginBottom: "16px"}}>
                 {reviews.map((review, index) => (
                     <div
                         key={index}
@@ -87,7 +99,7 @@ const ReviewSection = () => {
                         </div>
                     </div>
                 ))}
-            </div>
+            </div> */}
         </div>
     );
 };

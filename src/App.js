@@ -1,3 +1,4 @@
+import React from "react";
 import Homepage from "./Comp/Header/Homepage";
 import Login from "./Comp/User Login-Reg/Login";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
@@ -6,11 +7,12 @@ import Page404 from "./Comp/page404/Page404";
 import OnlineDoc from "./Comp/OnlineDocAva/OnlineDoc";
 import Book from "./Comp/Booking/Book";
 import DoctorProfile from "./Comp/ProfileDR/DoctorProfile";
-
+import Navbar from './Comp/Navbar/Navbar'
 function App() {
     return (
         <div className="bg-gray-100">
             <BrowserRouter>
+            <Navbar/>
                 <Routes>
                     <Route path="/" element={<Login />} />
                     <Route path="/Reg" element={<Reg />} />
