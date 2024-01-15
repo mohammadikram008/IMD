@@ -5,14 +5,14 @@ const Footer = () => {
     return (
         <div>
             <footer className=" bg-[#1a2332] text-white  md:h-full md:p-16  ">
-                    <div className=" p-8">
-                        <img src="/Logo Imd.png" alt="Your Logo" className="mb-4 w-24 " />
-                        <p>Your company description goes here.</p>
-                    </div>
+                  
                 <div className="container mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center items-center p-16 md:p-0">
                     {/* ... Content for each column ... */}
 
-                    <div className="hidden md:flex md:col-span-1"></div>
+                    <div className="hidden md:flex md:flex-col col-span-1 ">
+                        <img src="/Logo Imd.png" alt="Your Logo" className="mb-4 w-24 " />
+                        <p>Your company description goes here.</p>
+                    </div>
 
                     <div className="col-span-1">
                         <h3 className="text-lg font-semibold mb-4">About Us</h3>
@@ -51,8 +51,8 @@ const Footer = () => {
                 <div className=" container mx-auto mt-16 ">
                   
 
-                        <img src={shape_39} alt="Top Left Image" className="absolute top-0 left-0 z-0" />
-                        <img src={shape_42} alt="Top Right Image" className="absolute top-0 right-0" />
+                        {/* <img src={shape_39} alt="Top Left Image" className="absolute top-0 left-0 z-0" />
+                        <img src={shape_42} alt="Top Right Image" className="absolute top-0 right-0" /> */}
                         <p className="text-center mt-8">Docpro © 2020 All Right Reserved</p>
                         <p className="text-center">Terms of Service | Privacy Policy</p>
                 

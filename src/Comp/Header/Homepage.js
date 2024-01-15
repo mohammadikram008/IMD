@@ -85,7 +85,7 @@ const HomePage = () => {
             <OnlineDoctors />
             {/* <ReviewSection /> */}
             <ScreenComponent />
-            <Footer />
+           
             <button className="fixed  top-btn border"><FaCircleArrowUp size={27} /></button>
         </div>
     );

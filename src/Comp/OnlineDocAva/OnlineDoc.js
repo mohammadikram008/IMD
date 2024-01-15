@@ -43,7 +43,7 @@ const DoctorCard = ({ name, image, qualification, totalReviews, responseTime, ex
     return (
         <div className="OnlineDoc bg-white rounded-md p-9 md:p-9 lg:p-9 shadow-lg border  flex flex-col sm:flex-row  md:flex-col lg:flex-row   justify-between mb-9 ">
             <div className="flex">
-                <div className="flex justify-start items-start   ">
+                <div className="flex justify-start items-start ">
 
                     <img src={image} alt="Doctor" className=" w-full h-16 border-2 rounded-full mr-4" />
                 </div>
@@ -103,7 +103,7 @@ const DoctorCard = ({ name, image, qualification, totalReviews, responseTime, ex
                     Pay online and get off to 50%
                 </div>
             </div>
-            <div className="flex  md:flex-col md:items-center md:justify-center items-center justify-center space-x-3 md:space-x-0 ">
+            <div className="flex mt-5 md:flex-col md:items-center md:justify-center items-center justify-center space-x-3 md:space-x-0 ">
                 <Link to="/DoctorProfile">
                     <button className="border border-green-400 text-center text-black- px-12 w-52 py-2 md:mb-2 rounded-md hover:bg-blue-50 transition duration-300 ease-in-out">
                         View Profile
@@ -121,7 +121,7 @@ const DoctorCard = ({ name, image, qualification, totalReviews, responseTime, ex
 
 const OnlineDoc = () => {
     return (
-        <div className="container  mx-auto mt-24 h-full md:mt-20 md:py-2">
+        <div className="container  mx-auto mt-24 h-full md:mt-20 md:py-2 ">
             <h1 className="text-3xl font-bold mb-3 mt-4">Best 123 Doctors Available Near You</h1>
 
             <h2 className="mb-3">
