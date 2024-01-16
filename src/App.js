@@ -11,7 +11,7 @@ import Navbar from './Comp/Navbar/Navbar'
 import Footer from "./Comp/Footer";
 function App() {
     return (
-        <div className="">
+        <div className="bg-gray-100">
       
             <Navbar/>
                 <Routes>

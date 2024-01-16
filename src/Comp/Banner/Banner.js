@@ -1,17 +1,16 @@
 import React from "react";
 import dotrimg from './d.png'
 import Doc2 from './Doc2.png'
-
+import {Link} from 'react-router-dom'
 const Banner = () => {
     return (
         <div className="w-full  bg-gray-100  md:mt-24">
             {/* First Card */}
-            <div className="md:mx-20     flex flex-col md:flex-row  md:item-center md:justify-center items-center justify-center mt-6 ">
+            <div className="md:mx-20 flex flex-col md:flex-row  md:item-center md:justify-center items-center justify-center mt-6 ">
 
-
-                <a
-                    href="/OnlineDoc"
-                    className="w-full h-52 background-gradient md:64 lg:h-64 rounded-lg md:ml-4  md:mr-2 flex items-center justify-center mb-4 md:mb-0 shadow-xl"
+                <Link
+                    to="/OnlineDoc"
+                    className="w-full flex flex-col md:flex-row background-gradient md:64 lg:h-64 rounded-lg md:ml-4  md:mr-2  items-center justify-center mb-4 md:mb-0 shadow-xl"
                 >
 
                     <img
@@ -29,18 +28,18 @@ const Banner = () => {
                             </span>
                         </h1>
                         <button
-                            onClick={() => {
-                                window.location.href = "https://www.playstore.com"; // Replace with your desired link
-                            }}
+                            // onClick={() => {
+                            //     window.location.href = "https://www.playstore.com"; // Replace with your desired link
+                            // }}
                             className=" px-3 py-1 md:px-4 md:py-2 bg-gray-800 text-white rounded-md md:mt-10 mt-16 mx-2 hover:shadow-lg transition-transform transform hover:scale-105 w-36"
                         >
                             Visit Now
                         </button>
                     </div>
-                </a>
+                </Link>
 
                 {/* Second Card */}
-                <div className="w-full md:min-h-max md:justify-center  h-64 bg-[#b7e9e1] flex rounded-lg md:ml-4 md:mr-4 shadow-xl">
+                <div className="w-full  md:justify-center  md:h-64 bg-[#b7e9e1] flex rounded-lg md:ml-4 md:mr-4 shadow-xl">
                     <div className="flex items-center justify-start p-4 pl-10">
                         <div>
                             <h1 className="text-3xl mb-4">Are you a Doctor?</h1>

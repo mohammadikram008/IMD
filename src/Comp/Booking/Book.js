@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { BsCaretLeftFill, BsCaretRightFill } from "react-icons/bs";
 import { MdStars } from "react-icons/md";
 import { IoMdSunny } from "react-icons/io";
 import { MdOutlineNightlightRound } from "react-icons/md";
 import { FaVideo } from "react-icons/fa";
+import './Book.css'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import { BsHospital } from "react-icons/bs";
 import { FaClock } from "react-icons/fa6";
 ///slider
-
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -20,6 +21,9 @@ import 'slick-carousel/slick/slick-theme.css';
 ////calender
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+
+//model
+import Model from '../Layout/Model/Index'
 
 const Review = ({ patientName, review, date }) => (
     <div className="border p-4 mt-4 rounded-md">
@@ -37,13 +41,14 @@ const Book = () => {
     const doctorAvailability = [
         { date: new Date(2024, 0, 5), available: true },
         { date: new Date(2024, 0, 1), available: true },
-        { date: new Date(2024, 0, 6), available: true },
+        { date: new Date(2024, 0, 6), available: false },
         { date: new Date(2024, 0, 15), available: true },
-        { date: new Date(2024, 0, 10), available: false },
+        { date: new Date(2024, 0, 10), available: true },
         // Add more availability data
     ];
 
     const [selectedCDate, setSelectedCDate] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const tileContent = ({ date, view }) => {
         // Check if the date is in the doctor's availability data
@@ -52,7 +57,7 @@ const Book = () => {
         );
 
         if (isAvailable) {
-            return <div className="text-white font-bold bg-orange-400">.</div>;
+            return <div className="text-white text-xs bg-orange-400 rounded-full ">Avi</div>;
         }
 
         return null;
@@ -62,19 +67,21 @@ const Book = () => {
 
 
     const settings = {
-        dots: false,
+        dots: true,
         infinite: true,
         speed: 500,
         autoplay: false,
         autoplaySpeed: 3000,
-        slidesToShow: 20,
+        slidesToShow: 19,
         slidesToScroll: 2,
+        initialSlide: 4,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 5,
                     slidesToScroll: 1,
+                    dots: false,
                 },
             },
             {
@@ -82,6 +89,7 @@ const Book = () => {
                 settings: {
                     slidesToShow: 4,
                     slidesToScroll: 1,
+                    dots: false,
                 },
             },
         ],
@@ -136,7 +144,7 @@ const Book = () => {
             const isSelected = day === selectedDate;
 
             dateContainers.push(
-                <div key={day} className="flex-shrink-0  w-20 h-52">
+                <div key={day} className=" ">
                     <div
                         className={`date-container rounded-full  border cursor-pointer h-32 w-16 text-xl flex flex-col justify-center items-center  ${isSelected ? "background-gradient text-white" : "border-black"}`}
                         onClick={() => handleDateClick(day)}
@@ -164,14 +172,45 @@ const Book = () => {
                 onClick={() => handleTimeSlotClick(timeSlot)}
 
             >
-                <button className={` rounded-3xl p-4 border w-full h-full items-center cursor-pointer text-lg text-center ${selectedTimeSlot === timeSlot ? "background-gradient text-white text-center" : "border-black"}`}>{timeSlot}</button>
+                <button className={` rounded-3xl p-4 border w-full h-full items-center cursor-pointer text-lg text-center ${selectedTimeSlot === timeSlot ? "background-gradient text-white text-center" : "border-black"}`} onClick={() => setIsModalOpen(!isModalOpen)}>{timeSlot}</button>
             </div>
         ));
     };
 
-    return (
- 
 
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+    return (
+        <Fragment>
+            {isModalOpen &&
+            //     <Modal isOpen={isOpen} toggle={toggle}>
+            //     <ModalHeader toggle={toggle}>Custom Modal</ModalHeader>
+            //     <ModalBody>
+            //       <label>
+            //         Booking 
+            //         <input type="text" value={field1} onChange={handleField1Change} />
+            //       </label>
+            //       <label>
+            //         Field 2:
+            //         <input type="text" value={field2} onChange={handleField2Change} />
+            //       </label>
+            //       <label>
+            //         Field 3:
+            //         <input type="text" value={field3} onChange={handleField3Change} />
+            //       </label>
+            //     </ModalBody>
+            //     <ModalFooter>
+            //       <Button color="primary" onClick={handleButtonClick}>
+            //         Submit
+            //       </Button>{" "}
+            //       <Button color="secondary" onClick={toggle}>
+            //         Cancel
+            //       </Button>
+            //     </ModalFooter>
+            //   </Modal>
+                <Model isOpen={isModalOpen} toggle={closeModal} />
+            }
 
             <div className="container mx-auto p-8   bg-white mt-12   md:mt-24   ">
 
@@ -207,19 +246,19 @@ const Book = () => {
                             {/* <p className="text-gray-600 text-sm mb-1">Satisfied Patients: {totalReviews}</p> */}
                             {/* <p className="text-gray-600 text-sm mb-1">Response Time: {responseTime}</p> */}
                             <div className="flex text-gray-600 ">
-                                <div className=" p-3 " style={{ borderRight: "1px solid #e5e5f0" }}>
+                                <div className="text-sm font-normal mt-3 md:p-3 " style={{ borderRight: "1px solid #e5e5f0" }}>
                                     <h1 className="font-bold text-lg  text-green-500 ">Under 15 mint</h1>
                                     <h5>WAIT TIME</h5>
                                 </div>
 
-                                <div className="p-3 md:px-8 md:mx-10" style={{ borderRight: "1px solid #e5e5f0" }}>
+                                <div className="text-sm font-normal mt-3 p-3 md:px-8 md:mx-10" style={{ borderRight: "1px solid #e5e5f0" }}>
                                     <h1 className="font-bold text-lg  text-green-500 ">
                                         7 years</h1>
                                     <h5>EXPERIENCE</h5>
                                 </div>
 
-                                <div className=" p-3 md:px-8 md:mx-10" >
-                                    <h1 className="font-bold text-lg  text-green-500 ">
+                                <div className=" text-sm font-normal mt-3 md:p-3  md:px-8 md:mx-10" >
+                                    <h1 className="font-bold  md:text-lg  text-green-500 ">
                                         98% (542)</h1>
                                     <h5>SATISFIED</h5>
                                 </div>
@@ -240,7 +279,7 @@ const Book = () => {
                         </div>
 
                     </div>
-                    <div className="md:mr-6">
+                    <div className="md:mr-6 w-56">
                         <Calendar
                             onChange={setSelectedCDate}
                             value={selectedCDate}
@@ -274,7 +313,7 @@ const Book = () => {
 
                 <div className="border py-6 h-48 md:p-4 mt-4 rounded-md shadow">
 
-                    <Slider {...settings}>
+                    <Slider {...settings} className="slick-lists" >
                         {renderDateContainers()}
                     </Slider>
 
@@ -303,7 +342,7 @@ const Book = () => {
 
                 <div className="border p-4 mt-4 text-center rounded-md shadow">
                     <div className="flex justify-center items-center space-x-2">
-                        <MdOutlineNightlightRound style={{ transform: 'rotate(-30deg)' }} />
+                        <MdOutlineNightlightRound size={26}  />
                         <h2 className="text-lg font-bold">Evening Slots</h2>
                     </div>
                     <div className="flex flex-col  md:flex-row items-center justify-center md:items-center md:justify-center p-3 mt-4">
@@ -322,8 +361,9 @@ const Book = () => {
                     review="Excellent service and professional staff. Thank you, Dr. Doe!"
                     date="February 1, 2023"
                 />
+
             </div>
-    
+        </Fragment>
     );
 };
 

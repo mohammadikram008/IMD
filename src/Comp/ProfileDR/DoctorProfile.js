@@ -5,7 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import { BsHospital } from "react-icons/bs";
 import { FaClock } from "react-icons/fa6";
-
+import {Link ,useNavigate } from 'react-router-dom'
 
 const Review = ({ patientName, review, date }) => (
     <div className="border p-4 mt-4 rounded-md hover:shadow-md transition duration-300">
@@ -17,6 +17,7 @@ const Review = ({ patientName, review, date }) => (
     </div>
 );
 const DoctorProfile = () => {
+    const Navigate=useNavigate();
     const [openQuestion, setOpenQuestion] = useState(null);
 
     const data = [
@@ -102,7 +103,9 @@ const DoctorProfile = () => {
     const ServiceItem = ({ serviceName }) => <li className="text-gray-600">{serviceName}</li>;
 
     const ConditionItem = ({ conditionName }) => <li className="text-gray-600">{conditionName}</li>;
-
+const handleChange=()=>{
+    Navigate("/Book")
+}
     return (
         <div className="relative bg-white mt-20 p-8 flex-col md:flex md:flex-row   items-start justify-center md:space-x-12  hover:border-gray-300 hover:shadow-lg transition duration-300 md:mt-20">
             <div className="flex flex-col overflow-auto justify-center items-center md:w-1/2">
@@ -127,7 +130,7 @@ const DoctorProfile = () => {
                         </div>
                     </div>
                 </div> */}
-                <div className="flex flex-col md:flex-row p-5 md:space-x-10 md:mt-10 border rounded-md w-full   md:p-10  ">
+                <div className="flex flex-col md:flex-row p-2 md:space-x-10 md:mt-10 border rounded-md w-full   md:p-10  ">
                     <div className="flex justify-center items-center md:justify-start md:items-start ">
 
                         <img src={doctorData.pictureUrl} alt="Doctor" className=" w-1/2  md:w-full  h-36 border-2 rounded-full mr-4" />
@@ -201,7 +204,7 @@ const DoctorProfile = () => {
                             <p className="text-sm text-gray-500">Doctor Overall Consultation</p>
                         </div> */}
                         <div>
-                            <div className="relative pt-1 flex justify-between  md:space-x-3 ">
+                            <div className="relative pt-1 flex flex-col items-center md:flex-row  md:justify-between  md:space-x-3 ">
                                 <div className="">
                                     <p className="text-sm text-gray-500">Doctor Behaviors</p>
                                 </div>
@@ -223,7 +226,7 @@ const DoctorProfile = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="relative pt-1 flex justify-between  md:space-x-3 ">
+                            <div className="relative pt-1 flex flex-col items-center md:flex-row  justify-between  md:space-x-3 ">
                                 <div className="">
                                     <p className="text-sm text-gray-500">Clinic Environment</p>
                                 </div>
@@ -245,7 +248,7 @@ const DoctorProfile = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="relative pt-1 flex justify-between  md:space-x-3 ">
+                            <div className="relative pt-1 flex flex-col items-center md:flex-row  justify-between  md:space-x-3 ">
                                 <div className="">
                                     <p className="text-sm text-gray-500">Staff Behaviour</p>
                                 </div>
@@ -483,8 +486,10 @@ const DoctorProfile = () => {
 
                     {/* Booking Button */}
                     <div className="px-6 py-4 w-full">
-                        <button className="bg-blue-500 flex hover:bg-blue-700 text-white font-bold py-2 px-4 w-full justify-center items-center rounded ">
+                        <button className="bg-blue-500 flex hover:bg-blue-700 text-white font-bold py-2 px-4 w-full justify-center items-center rounded "    onClick={()=>handleChange()}>
+                        
                             <FaVideo size={22} />   <p className="md:mx-4">Book Appointment</p>
+                        
                         </button>
                     </div>
                 </div>

@@ -41,8 +41,8 @@ const doctorsData = [
 
 const DoctorCard = ({ name, image, qualification, totalReviews, responseTime, experience, practiceArea, fee }) => {
     return (
-        <div className="OnlineDoc bg-white rounded-md p-9 md:p-9 lg:p-9 shadow-lg border  flex flex-col sm:flex-row  md:flex-col lg:flex-row   justify-between mb-9 ">
-            <div className="flex">
+        <div className="OnlineDoc bg-white rounded-md   md:p-9 lg:p-9 shadow-lg border  flex flex-col sm:flex-row  md:flex-col lg:flex-row   justify-between mb-9 ">
+            <div className="flex p-2">
                 <div className="flex justify-start items-start ">
 
                     <img src={image} alt="Doctor" className=" w-full h-16 border-2 rounded-full mr-4" />
@@ -93,7 +93,7 @@ const DoctorCard = ({ name, image, qualification, totalReviews, responseTime, ex
                     </div>
                 </div>
             </div>
-            <div className="  rounded-md border-2 border-blue-500 h-32   mt-6 ">
+            <div className="  rounded-md border-2 border-blue-500 md:h-32   mt-6 ">
                 <h2 className="text-2xl font-bold p-3">Inetgrate medical Hospital DHA</h2>
                 <div className=" flex justify-around ">
                     <p className="text-gray-600">Available on: Mon,31 August</p>
@@ -103,7 +103,7 @@ const DoctorCard = ({ name, image, qualification, totalReviews, responseTime, ex
                     Pay online and get off to 50%
                 </div>
             </div>
-            <div className="flex mt-5 md:flex-col md:items-center md:justify-center items-center justify-center space-x-3 md:space-x-0 ">
+            <div className="flex flex-col space-y-5  mt-10 mb-2  md:flex-col md:items-center md:justify-center items-center justify-center md:space-x-0 ">
                 <Link to="/DoctorProfile">
                     <button className="border border-green-400 text-center text-black- px-12 w-52 py-2 md:mb-2 rounded-md hover:bg-blue-50 transition duration-300 ease-in-out">
                         View Profile

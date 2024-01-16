@@ -80,11 +80,11 @@ const HeroSection = () => {
     return (
 
         <div
-            className="background-gradient relative flex items-center justify-center bg-cover bg-center  "
+            className="background-gradient relative  flex items-center justify-center bg-cover bg-center hero-sections "
             style={{
 
                 // backgroundImage: 'url("/bckg.png")',
-                height: "70vh", borderBottomRightRadius: "20px", borderBottomLeftRadius: "20px"
+                 borderBottomRightRadius: "20px", borderBottomLeftRadius: "20px"
             }}
         >
             <div className="text-center text-white  md:w-full " style={{ marginTop: "10rem" }}>
@@ -161,7 +161,7 @@ const HeroSection = () => {
                         <div key={index} style={{ display: index === currentIndex ? "block" : "none" }} className=" flex items-center">
 
 
-                            <div className=" text-4xl flex items-center justify-center counter-div " >
+                            <div className=" text-4xl flex items-center justify-center counter-div mb-10 md:mb-0 " >
                                 <h1 className='bg-green-500 p-2 rounded'>
                                     {message}
                                 </h1>

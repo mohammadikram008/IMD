@@ -104,7 +104,10 @@
 body {
   font-family: 'Gilroy-Medium';
 }
-
+/* hero section */
+.hero-sections{
+ height: 70vh;
+}
 
 /* colors  */
 .background-gradient {
@@ -265,7 +268,7 @@ body {
 
 }
 
-slick-next .badge-bg p {
+.slick-next .badge-bg p {
   font-size: x-small;
 
 }
@@ -273,14 +276,16 @@ slick-next .badge-bg p {
 .footer-ul li {
   color: gray;
 }
-
+/* .slick-list{
+  height: 12rem;
+} */
 .download-div-img {
-  position: relative;
+  /* position: relative; */
   width: 160% !important;
   height: 35rem !important;
   margin-left: -5rem;
   position: absolute;
-  margin-Top: -10rem !important;
+  margin-Top: -15rem !important;
 }
 
 .download-main-div {
@@ -298,18 +303,27 @@ slick-next .badge-bg p {
 }
 
 @media(max-width:760px) {
+
+  .hero-sections{
+    height: auto;
+   }
   .srchbar-input {
     width: 90%;
     margin: 2rem;
   }
+.badge-bg {
+height: auto;
 
+
+}
   .srch-btn {
     width: 100%;
     position: relative;
     margin-top: 0rem;
     margin-left: 0rem;
     width: 90%;
-    margin: -15px 2rem 0px 2rem;
+    margin: auto;
+    /* margin: -15px 2rem 0px 2rem; */
 
   }
 
@@ -350,7 +364,7 @@ slick-next .badge-bg p {
   .premium-div{
     /* padding: 1rem; */
     /* width: 3rem; */
-    height: 2.3rem;
+    height: auto;
   }
 }
 
